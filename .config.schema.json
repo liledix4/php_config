@@ -1,0 +1,82 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Configurations for PHP modules",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+        "database": {
+            "type": "object",
+            "title": "Configurations for module \"php_database\"",
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "title": "Address of the database",
+                    "minLength": 1
+                },
+                "username": {
+                    "type": "string",
+                    "title": "Database account username",
+                    "minLength": 1
+                },
+                "password": {
+                    "type": "string",
+                    "title": "Database account password",
+                    "minLength": 1
+                },
+                "defaults": {
+                    "type": "object",
+                    "title": "Default values",
+                    "properties": {
+                        "db_name": {
+                            "type": "string",
+                            "title": "Name of the database",
+                            "minLength": 1
+                        },
+                        "table": {
+                            "type": "string",
+                            "title": "Name of the table in the database",
+                            "minLength": 1
+                        }
+                    }
+                },
+                "redirect_on_error": {
+                    "type": "string",
+                    "title": "If database error happens, redirect to URL",
+                    "pattern": "https?://.+"
+                }
+            }
+        },
+        "github": {
+            "type": "object",
+            "title": "Configurations for module \"php_github\"",
+            "properties": {
+                "defaults": {
+                    "type": "object",
+                    "title": "Default values",
+                    "properties": {
+                        "user": {
+                            "type": "string",
+                            "title": "GitHub username",
+                            "minLength": 1
+                        },
+                        "repo": {
+                            "type": "string",
+                            "title": "GitHub repository",
+                            "minLength": 1
+                        },
+                        "branch": {
+                            "type": "string",
+                            "title": "Branch of GitHub repository",
+                            "minLength": 1
+                        }
+                    }
+                },
+                "token": {
+                    "type": "string",
+                    "title": "GitHub token",
+                    "pattern": "^github_pat_[0-9A-Za-z]+_[0-9A-Za-z]+$"
+                }
+            }
+        }
+    }
+}
